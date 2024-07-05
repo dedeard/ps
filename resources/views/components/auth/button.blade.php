@@ -2,7 +2,7 @@
 
 @php
   $btnClass =
-      'group relative inline-block w-1/2 cursor-pointer select-none items-center justify-center p-4 text-center text-sm font-semibold uppercase leading-none tracking-wider text-white disabled:text-transparent disabled:opacity-70 hover:disabled:cursor-wait';
+      'group relative inline-block w-1/2 cursor-pointer rounded select-none items-center justify-center p-4 text-center text-sm font-semibold uppercase leading-none tracking-wider text-white disabled:text-transparent disabled:opacity-70 hover:disabled:cursor-wait';
   if ($variant === 'primary') {
       $btnClass = $btnClass . ' bg-primary-600 hover:bg-primary-700 hover:disabled:bg-primary-600';
   } elseif ($variant === 'red') {

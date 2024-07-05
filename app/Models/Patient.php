@@ -20,6 +20,8 @@ class Patient extends Model
         'blood_type',
         'address',
         'phone',
+        'notes',
+        'recipe'
     ];
 
     public function user()

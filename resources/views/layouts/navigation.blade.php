@@ -6,29 +6,30 @@
         <!-- Logo -->
         <div class="flex shrink-0 items-center">
           <a href="{{ route('home') }}">
-            <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+            <x-svg.logo class="block h-9 w-auto fill-current text-primary-600" />
           </a>
         </div>
 
         <!-- Navigation Links -->
         <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-          <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+          <x-ui.nav-link :href="route('home')" :active="request()->routeIs('home')">
             {{ __('Home') }}
-          </x-nav-link>
+          </x-ui.nav-link>
+
           @if (Auth::user()->isAdmin())
-            <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+            <x-ui.nav-link :href="route('home')" :active="request()->routeIs('home')">
               {{ __('Patient') }}
-            </x-nav-link>
-            <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+            </x-ui.nav-link>
+            <x-ui.nav-link :href="route('home')" :active="request()->routeIs('home')">
               {{ __('Staff') }}
-            </x-nav-link>
+            </x-ui.nav-link>
           @endif
         </div>
       </div>
 
       <!-- Settings Dropdown -->
       <div class="hidden sm:ms-6 sm:flex sm:items-center">
-        <x-dropdown align="right" width="48">
+        <x-ui.dropdown align="right" width="48">
           <x-slot name="trigger">
             <button
               class="inline-flex items-center rounded-md border border-transparent bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 focus:outline-none">
@@ -45,22 +46,22 @@
           </x-slot>
 
           <x-slot name="content">
-            <x-dropdown-link :href="route('profile.edit')">
+            <x-ui.dropdown-link :href="route('profile.edit')">
               {{ __('Profile') }}
-            </x-dropdown-link>
+            </x-ui.dropdown-link>
 
             <!-- Authentication -->
             <form method="POST" action="{{ route('logout') }}">
               @csrf
 
-              <x-dropdown-link :href="route('logout')"
+              <x-ui.dropdown-link :href="route('logout')"
                 onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                 {{ __('Log Out') }}
-              </x-dropdown-link>
+              </x-ui.dropdown-link>
             </form>
           </x-slot>
-        </x-dropdown>
+        </x-ui.dropdown>
       </div>
 
       <!-- Hamburger -->
@@ -81,16 +82,16 @@
   <!-- Responsive Navigation Menu -->
   <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
     <div class="space-y-1 pb-3 pt-2">
-      <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
+      <x-ui.responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
         {{ __('Home') }}
-      </x-responsive-nav-link>
+      </x-ui.responsive-nav-link>
       @if (Auth::user()->isAdmin())
-        <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
+        <x-ui.responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
           {{ __('Patient') }}
-        </x-responsive-nav-link>
-        <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
+        </x-ui.responsive-nav-link>
+        <x-ui.responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
           {{ __('Staff') }}
-        </x-responsive-nav-link>
+        </x-ui.responsive-nav-link>
       @endif
     </div>
 
@@ -102,18 +103,18 @@
       </div>
 
       <div class="mt-3 space-y-1">
-        <x-responsive-nav-link :href="route('profile.edit')">
+        <x-ui.responsive-nav-link :href="route('profile.edit')">
           {{ __('Profile') }}
-        </x-responsive-nav-link>
+        </x-ui.responsive-nav-link>
 
         <!-- Authentication -->
         <form method="POST" action="{{ route('logout') }}">
           @csrf
-          <x-responsive-nav-link :href="route('logout')"
+          <x-ui.responsive-nav-link :href="route('logout')"
             onclick="event.preventDefault();
                                         this.closest('form').submit();">
             {{ __('Log Out') }}
-          </x-responsive-nav-link>
+          </x-ui.responsive-nav-link>
         </form>
       </div>
     </div>

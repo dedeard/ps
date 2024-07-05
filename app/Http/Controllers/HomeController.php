@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $patients = Patient::where('user_id', Auth::id())->get();
+        $patients = Patient::paginate(20);
         return view('home.index', compact('patients'));
     }
 
@@ -31,6 +31,8 @@ class HomeController extends Controller
             'blood_type' => 'required',
             'address' => 'nullable',
             'phone' => 'nullable',
+            'notes' => 'nullable',
+            'recipe' => 'nullable',
         ]);
 
         $patient = new Patient($request->all());
@@ -38,5 +40,11 @@ class HomeController extends Controller
         $patient->save();
 
         return redirect()->route('home')->with('success', 'Patient created successfully.');
+    }
+
+    public function show(string $id)
+    {
+        $patient = Patient::findOrFail($id);
+        return view('home.show', compact('patient'));
     }
 }
