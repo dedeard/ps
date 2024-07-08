@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('place_of_birth');
             $table->date('date_of_birth');
             $table->enum('gender', ['male', 'female']);
-            $table->enum('blood_type', ['A', 'B', 'AB', 'O']);
+            $table->enum('blood_type', ['A+', 'B+', 'O+', 'AB+', 'A-', 'B-', 'O-', 'AB-']);
             $table->text('address')->nullable();
             $table->string('phone')->nullable();
 

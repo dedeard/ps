@@ -12,7 +12,7 @@
 
       <div class="flex mb-3">
         <span class="rounded block border bg-gray-100 text-sm font-semibold p-1">
-          Dr Dede ismail
+          {{$patient->doctor->name}}
         </span>
       </div>
 

@@ -17,11 +17,8 @@
           </x-ui.nav-link>
 
           @if (Auth::user()->isAdmin())
-            <x-ui.nav-link :href="route('home')" :active="request()->routeIs('home')">
-              {{ __('Patient') }}
-            </x-ui.nav-link>
-            <x-ui.nav-link :href="route('home')" :active="request()->routeIs('home')">
-              {{ __('Staff') }}
+            <x-ui.nav-link :href="route('doctors.index')" :active="request()->routeIs('doctors.*')">
+              {{ __('Doctor List') }}
             </x-ui.nav-link>
           @endif
         </div>
@@ -86,11 +83,8 @@
         {{ __('Home') }}
       </x-ui.responsive-nav-link>
       @if (Auth::user()->isAdmin())
-        <x-ui.responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
-          {{ __('Patient') }}
-        </x-ui.responsive-nav-link>
-        <x-ui.responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
-          {{ __('Staff') }}
+        <x-ui.responsive-nav-link :href="route('doctors.index')" :active="request()->routeIs('doctors.index')">
+          {{ __('Doctor List') }}
         </x-ui.responsive-nav-link>
       @endif
     </div>

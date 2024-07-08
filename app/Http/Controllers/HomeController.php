@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Doctor;
 use App\Models\Patient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,13 +17,15 @@ class HomeController extends Controller
 
     public function create()
     {
-        return view('home.create');
+        $doctors = Doctor::all();
+        return view('home.create', compact('doctors'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'nik' => 'required',
+            'doctor_id' => 'required|exists:doctors,id',
             'bpjs_number' => 'nullable',
             'full_name' => 'required',
             'place_of_birth' => 'required',

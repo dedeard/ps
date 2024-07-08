@@ -1,6 +1,6 @@
 @props(['patient'])
 
-<div class="flex gap-3 rounded-lg border bg-white p-3">
+<div class="flex gap-3 rounded-lg shadow bg-white p-3">
   <div class="flex flex-1 gap-4">
     <div class="flex flex-1 flex-col gap-1">
       <span class="block text-2xl font-semibold uppercase text-primary-600">{{ $patient->full_name }}</span>
@@ -11,7 +11,7 @@
       </span>
       <div class="flex">
         <span class="block rounded border bg-gray-100 px-1">
-          Dr Dede ismail
+          {{$patient->doctor->name}}
         </span>
       </div>
     </div>
