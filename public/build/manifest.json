@@ -1,0 +1,33 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-Dk591XbT.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/fonts/feather/feather.css": {
+    "file": "assets/feather-CDW-GnUz.css",
+    "src": "resources/fonts/feather/feather.css",
+    "isEntry": true
+  },
+  "resources/fonts/feather/fonts/feather.svg": {
+    "file": "assets/feather-D7oXsqA9.svg",
+    "src": "resources/fonts/feather/fonts/feather.svg"
+  },
+  "resources/fonts/feather/fonts/feather.ttf": {
+    "file": "assets/feather-DLadi1M7.ttf",
+    "src": "resources/fonts/feather/fonts/feather.ttf"
+  },
+  "resources/fonts/feather/fonts/feather.woff": {
+    "file": "assets/feather-DVRgGh8s.woff",
+    "src": "resources/fonts/feather/fonts/feather.woff"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-cYKq3cWR.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "css": [
+      "assets/app-Nx7BqVDs.css"
+    ]
+  }
+}
