@@ -20,7 +20,8 @@ class Patient extends Model
         'address',
         'phone',
         'notes',
-        'recipe'
+        'recipe',
+        'verified'
     ];
 
     public function user()

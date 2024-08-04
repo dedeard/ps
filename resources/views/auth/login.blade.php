@@ -7,6 +7,9 @@
     <div class="border-b py-3 text-center">
       <x-auth.button value="Masuk" />
     </div>
+    <div class="py-3 text-center">
+      <x-auth.button value="SIGN IN WITH GOOGLE" variant="red" type="button" />
+    </div>
     <div class="pt-4 text-center">
       <a class="text-sm font-bold text-primary-700" href="{{ route('password.request') }}">Lupa password anda?</a>
     </div>

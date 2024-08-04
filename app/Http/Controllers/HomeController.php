@@ -50,4 +50,13 @@ class HomeController extends Controller
         $patient = Patient::findOrFail($id);
         return view('home.show', compact('patient'));
     }
+
+    public function verify($id)
+    {
+        $patient = Patient::findOrFail($id);
+        $patient->verified = true;
+        $patient->save();
+
+        return redirect()->back()->with('success', 'Patient verify successfully.');
+    }
 }

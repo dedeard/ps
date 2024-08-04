@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@admin.com',
             'password' => Hash::make('11223344'),
-            'role' => 'admin'
+            'role' => 'ADMIN'
         ]);
 
         Doctor::factory()->count(10)->create();
