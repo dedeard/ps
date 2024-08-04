@@ -26,8 +26,10 @@
   </div>
   <div class="flex gap-2">
     @if (!$patient->verified)
-      <a href="/verify/{{ route('home.verify', $patient->id) }}"
+      <a href="{{ route('home.verify', $patient->id) }}"
         class="block h-10 rounded-lg bg-primary-600 p-3 text-sm font-semibold text-white">{{ __('Verify') }}</a>
+    @else
+      <span class="uppercase">VERIFIED</span>
     @endif
     <a href="{{ route('home.show', $patient->id) }}"
       class="block h-10 rounded-lg bg-primary-100 p-3 text-sm font-semibold text-primary-600">{{ __('Detail') }}</a>
