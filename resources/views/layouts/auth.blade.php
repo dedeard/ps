@@ -16,8 +16,8 @@
   </x-slot:script>
 
   <header class="flex bg-white py-5 shadow">
-    <a href="{{ route('home') }}" class="m-auto block" aria-label="Home">
-      <x-svg.logo class="h-10 w-10 text-primary-600" />
+    <a href="{{ route('home') }}" class="m-auto block text-lg font-semibold" aria-label="Home">
+      {{ config('app.name') }}
     </a>
   </header>
   <main class="px-3 py-10 md:px-0">
