@@ -195,8 +195,17 @@ return [
         'specialization' => 'Spesialisasi',
         'gender' => 'Jenis Kelamin',
         'date_of_birth' => 'Tanggal Lahir',
-        'phone' => 'Telepon',
+        'phone' => 'No hp',
         'address' => 'Alamat',
+
+        'nik' => 'NIK',
+        'doctor_id' => 'ID Dokter',
+        'bpjs_number' => 'Nomor BPJS',
+        'full_name' => 'Nama Lengkap',
+        'place_of_birth' => 'Tempat Lahir',
+        'blood_type' => 'Golongan Darah',
+        'notes' => 'Catatan',
+        'recipe' => 'Resep',
     ],
 
 ];

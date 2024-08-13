@@ -7,7 +7,7 @@
       <span class="flex gap-3 whitespace-nowrap text-sm">
         <span class="block">{{ $patient->address }}</span>
         <span class="block">{{ $patient->nik }}</span>
-        <span class="block">{{ $patient->gender }}</span>
+        <span class="block">{{ __($patient->gender) }}</span>
       </span>
       <div class="flex">
         <span class="block rounded border bg-gray-100 px-1">
