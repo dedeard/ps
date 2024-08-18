@@ -19,7 +19,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role',
     ];
 
     /**
@@ -45,8 +44,18 @@ class User extends Authenticatable
         ];
     }
 
+    public function doctor()
+    {
+        return $this->hasOne(Doctor::class);
+    }
+
+    public function pharmacy()
+    {
+        return $this->hasOne(Pharmacy::class);
+    }
+
     public function isAdmin()
     {
-        return $this->role === 'ADMIN';
+        return !!$this->doctor || !!$this->pharmacy;
     }
 }

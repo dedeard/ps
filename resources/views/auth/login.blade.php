@@ -1,6 +1,6 @@
-<x-auth-layout title="Masuk ke akun anda">
+<x-auth-layout title="Masuk ke akun {{ $type === 'doctor' ? 'Dokter' : 'Apotek' }}">
   <x-auth.session-status :status="session('status')" />
-  <form method="POST" action="{{ route('login') }}">
+  <form method="POST" action="{{ route('login', ['type' => $type]) }}">
     @csrf
     <x-auth.input name="email" label="Alamat Email" autofocus />
     <x-auth.input type="password" name="password" label="Password" />

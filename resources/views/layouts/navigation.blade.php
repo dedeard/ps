@@ -16,7 +16,7 @@
             {{ __('Home') }}
           </x-ui.nav-link>
 
-          @if (Auth::user()->isAdmin())
+          @if (Auth::user()->doctor)
             <x-ui.nav-link :href="route('doctors.index')" :active="request()->routeIs('doctors.*')">
               {{ __('Doctor List') }}
             </x-ui.nav-link>
@@ -30,7 +30,7 @@
           <x-slot name="trigger">
             <button
               class="inline-flex items-center rounded-md border border-transparent bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 focus:outline-none">
-              <div>{{ Auth::user()->name }}</div>
+              <div>{{ Auth::user()->doctor ? 'Dokter' : 'Apotek' }} {{ Auth::user()->name }}</div>
 
               <div class="ms-1">
                 <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -82,7 +82,7 @@
       <x-ui.responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
         {{ __('Home') }}
       </x-ui.responsive-nav-link>
-      @if (Auth::user()->isAdmin())
+      @if (Auth::user()->doctor)
         <x-ui.responsive-nav-link :href="route('doctors.index')" :active="request()->routeIs('doctors.index')">
           {{ __('Doctor List') }}
         </x-ui.responsive-nav-link>
@@ -94,6 +94,7 @@
       <div class="px-4">
         <div class="text-base font-medium text-gray-800">{{ Auth::user()->name }}</div>
         <div class="text-sm font-medium text-gray-500">{{ Auth::user()->email }}</div>
+        <div class="text-sm font-medium text-gray-500">{{ Auth::user()->doctor ? 'Dokter' : 'Apotek' }}</div>
       </div>
 
       <div class="mt-3 space-y-1">

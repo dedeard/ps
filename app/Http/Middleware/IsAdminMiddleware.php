@@ -15,7 +15,10 @@ class IsAdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        abort_if(!auth()->user()->isAdmin(), 403, 'You are not authorized to access this resource');
+        if (!auth()->user()->isAdmin()) {
+            auth()->logout();
+            abort(403, 'You are not authorized to access this resource');
+        }
         return $next($request);
     }
 }

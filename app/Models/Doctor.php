@@ -18,6 +18,7 @@ class Doctor extends Model
         'date_of_birth', // Ensure this matches the column name in your table
         'phone',
         'address',
+        'user_id'
     ];
 
     protected $casts = [
@@ -57,5 +58,10 @@ class Doctor extends Model
             "Hematologist",
             "Oncologist",
         ];
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

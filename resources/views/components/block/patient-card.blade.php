@@ -25,11 +25,27 @@
     </div>
   </div>
   <div class="flex gap-2">
-    @if (!$patient->verified)
-      <a href="{{ route('home.verify', $patient->id) }}"
-        class="block h-10 rounded-lg bg-primary-600 p-3 text-sm font-semibold text-white">{{ __('Verify') }}</a>
+    @if ($patient->status == 1)
+      @if (Auth::user()->doctor)
+        <a href="{{ route('home.verify', $patient->id) }}"
+          class="block h-10 rounded-lg bg-primary-600 p-3 text-sm font-semibold text-white">{{ __('Verify') }}</a>
+      @endif
+    @elseif($patient->status == 2)
+      @if (Auth::user()->doctor)
+        <a href="{{ route('home.submit', $patient->id) }}"
+          class="block h-10 rounded-lg bg-primary-600 p-3 text-sm font-semibold text-white">Kirim Data</a>
+      @endif
+    @elseif($patient->status == 3)
+      @if (Auth::user()->pharmacy)
+        <a href="{{ route('home.give', $patient->id) }}"
+          class="block h-10 rounded-lg bg-primary-600 p-3 text-sm font-semibold text-white">Berikan Obat</a>
+      @endif
     @else
-      <span class="uppercase">VERIFIED</span>
+      Selesai
+    @endif
+    @if (Auth::user()->doctor)
+      <a href="{{ route('home.edit', $patient->id) }}"
+        class="block h-10 rounded-lg bg-primary-600 p-3 text-sm font-semibold text-white">Edit</a>
     @endif
     <a href="{{ route('home.show', $patient->id) }}"
       class="block h-10 rounded-lg bg-primary-100 p-3 text-sm font-semibold text-primary-600">{{ __('Detail') }}</a>

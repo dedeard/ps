@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Doctor;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -21,6 +22,7 @@ class DoctorFactory extends Factory
             'date_of_birth' => $this->faker->dateTimeBetween('-60 years', '-25 years')->format('Y-m-d H:i:s'),
             'phone' => $this->faker->phoneNumber,
             'address' => $this->faker->address,
+            'user_id' => User::factory()
         ];
     }
 }
