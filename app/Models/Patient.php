@@ -21,7 +21,11 @@ class Patient extends Model
         'notes',
         'recipe',
         'verified',
-        "status"
+        "status",
+        'kelas_terapi',
+        'sub_kelas_terapi',
+        'sub_sub_kelas_terapi',
+        'sub_sub_sub_kelas_terapi',
     ];
 
 

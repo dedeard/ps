@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Doctor;
+use App\Models\Fornes;
 use App\Models\Patient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +19,8 @@ class HomeController extends Controller
     public function create()
     {
         $doctors = Doctor::all();
-        return view('home.create', compact('doctors'));
+        $fornes = Fornes::all();
+        return view('home.create', compact('doctors', 'fornes'));
     }
 
     public function store(Request $request)
@@ -36,9 +38,20 @@ class HomeController extends Controller
             'phone' => 'nullable',
             'notes' => 'nullable',
             'recipe' => 'nullable',
+            'obat' => 'nullable'
         ]);
 
-        $patient = new Patient($request->all());
+        $obat = $request->input('obat');
+        $obat = Fornes::where('id', $obat)->first();
+        $in = $request->all();
+
+        if ($obat) {
+            $in['kelas_terapi'] = $obat->kelas_terapi;
+            $in['sub_kelas_terapi'] = $obat->sub_kelas_terapi;
+            $in['sub_sub_kelas_terapi'] = $obat->sub_sub_kelas_terapi;
+            $in['sub_sub_sub_kelas_terapi'] = $obat->sub_sub_sub_kelas_terapi;
+        }
+        $patient = new Patient($in);
         // $patient->user_id = Auth::id();
         $patient->save();
 
@@ -49,7 +62,9 @@ class HomeController extends Controller
     {
         $doctors = Doctor::all();
         $patient = Patient::findOrFail($id);
-        return view('home.edit', compact('patient', 'doctors'));
+        $fornes = Fornes::all();
+
+        return view('home.edit', compact('patient', 'doctors', 'fornes'));
     }
 
     public function update(Request $request, $id)
@@ -67,11 +82,25 @@ class HomeController extends Controller
             'phone' => 'nullable',
             'notes' => 'nullable',
             'recipe' => 'nullable',
+            'obat' => 'nullable'
         ]);
 
 
+
         $patient = Patient::findOrFail($id);
-        $patient->update($request->all());
+
+        $obat = $request->input('obat');
+        $obat = Fornes::where('id', $obat)->first();
+        $in = $request->all();
+
+        if ($obat) {
+            $in['kelas_terapi'] = $obat->kelas_terapi;
+            $in['sub_kelas_terapi'] = $obat->sub_kelas_terapi;
+            $in['sub_sub_kelas_terapi'] = $obat->sub_sub_kelas_terapi;
+            $in['sub_sub_sub_kelas_terapi'] = $obat->sub_sub_sub_kelas_terapi;
+        }
+
+        $patient->update($in);
 
 
 

@@ -45,9 +45,23 @@
             <x-inputs.textarea name="address" :placeholder="__('Address')" :label="__('Address')" />
             <x-inputs.text name="phone" :placeholder="__('Phone')" :label="__('Phone')" />
           </div>
+
           <div>
             <x-inputs.textarea name="notes" rows="10" :placeholder="__('Notes')" :label="__('Notes')" />
             <x-inputs.textarea name="recipe" rows="10" :placeholder="__('Recipe')" :label="__('Recipe')" />
+            <div>
+              <x-inputs.select name="obat" placeholder="Obat" label="Obat">
+                @foreach ($fornes as $item)
+                  <option value="{{ $item->id }}">
+                    {{ $item->nama_obat }} -
+                    {{ $item->kelas_terapi }} -
+                    {{ $item->sub_kelas_terapi }} -
+                    {{ $item->satuan }} -
+                    {{ $item->sediaan }}
+                  </option>
+                @endforeach
+              </x-inputs.select>
+            </div>
             <x-inputs.button class="w-24" :value="__('Submit')" />
           </div>
         </form>

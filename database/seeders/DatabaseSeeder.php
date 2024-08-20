@@ -35,5 +35,6 @@ class DatabaseSeeder extends Seeder
 
         Doctor::factory()->count(10)->create();
         Pharmacy::factory()->count(3)->create();
+        $this->call(FornasSeeder::class);
     }
 }
