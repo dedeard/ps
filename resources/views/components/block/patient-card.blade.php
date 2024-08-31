@@ -55,20 +55,4 @@
       </div>
     </div>
   </div>
-  <div>
-    <table class="table-border table w-full text-left">
-      <tr class="border">
-        <th class="border">kelas terapi</th>
-        <th class="border">sub kelas terapi</th>
-        <th class="border">sub kelas terapi 2</th>
-        <th class="border">sub kelas terapi 3</th>
-      </tr>
-      <tr class="border">
-        <td class="border">{{ $patient->kelas_terapi }}</td>
-        <td class="border">{{ $patient->sub_kelas_terapi }}</td>
-        <td class="border">{{ $patient->sub_sub_kelas_terapi }}</td>
-        <td class="border">{{ $patient->sub_sub_sub_kelas_terapi }}</td>
-      </tr>
-    </table>
-  </div>
 </div>

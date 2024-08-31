@@ -1,14 +1,17 @@
 <?php
 
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\DrugsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TherapeuticController;
 use Illuminate\Support\Facades\Route;
 
 
 require __DIR__ . '/auth.php';
 
 Route::middleware('auth', 'admin')->group(function () {
+    Route::get('/therapeutics', [TherapeuticController::class, 'getTherapeuticData']);
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::post('/', [HomeController::class, 'store'])->name('home.store');
     Route::get('/create', [HomeController::class, 'create'])->name('home.create');

@@ -47,19 +47,7 @@
             <x-inputs.textarea name="notes" :value="$patient->notes" rows="10" :placeholder="__('Notes')" :label="__('Notes')" />
             <x-inputs.textarea name="recipe" :value="$patient->recipe" rows="10" :placeholder="__('Recipe')" :label="__('Recipe')" />
 
-            <div>
-              <x-inputs.select name="obat" placeholder="Obat" label="Obat">
-                @foreach ($fornes as $item)
-                  <option value="{{ $item->id }}">
-                    {{ $item->nama_obat }} -
-                    {{ $item->kelas_terapi }} -
-                    {{ $item->sub_kelas_terapi }} -
-                    {{ $item->satuan }} -
-                    {{ $item->sediaan }}
-                  </option>
-                @endforeach
-              </x-inputs.select>
-            </div>
+            <x-inputs.therapeutic :data="$fornes" />
             <x-inputs.button class="w-24" :value="__('Submit')" />
           </div>
         </form>
