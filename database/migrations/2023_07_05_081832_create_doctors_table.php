@@ -20,6 +20,7 @@ return new class extends Migration
             $table->date('date_of_birth');
             $table->string('phone')->nullable();
             $table->text('address')->nullable();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
 
             $table->timestamps();
         });

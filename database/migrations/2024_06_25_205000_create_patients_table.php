@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
 
+            $table->foreignId('doctor_id')->after('user_id')->constrained()->onDelete('cascade');
+
             $table->string('nik');
             $table->string('bpjs_number')->nullable();
             $table->string('full_name');
@@ -23,7 +25,10 @@ return new class extends Migration
             $table->enum('blood_type', ['A+', 'B+', 'O+', 'AB+', 'A-', 'B-', 'O-', 'AB-']);
             $table->text('address')->nullable();
             $table->string('phone')->nullable();
-
+            $table->boolean('verified')->default(false);
+            $table->integer('status')->default(1);
+            $table->string('notes')->nullable()->after('phone');
+            $table->string('recipe')->nullable()->after('phone');
             $table->timestamps();
         });
     }
